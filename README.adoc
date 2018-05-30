@@ -1,0 +1,21 @@
+# gelber_sack_reporter
+Findet den Ort, wo der Gelbe Sack das nächste Mal abgeholt wird
+
+In Balin ham wa ne grosse Schnauze, aber hinkriejen tun wa nischts. 
+Nich mal so enfache Sachen, wie nen Jelben Sack abholen. 
+Woanders ham sie jelbe Tonnen, aba nisch bei uns.
+Nee, nee Sacksammeljebiet. 
+Und jetzt musste halt wissen wann de dran bist wa. 
+Is aba schwierig rauzufinden.
+Und wenn den Termin verpasst hast, kieckste in de Röhre.
+Oder Denem Sack zu, wie a lange vor sich hinjammelt.
+Oder fährst auf Entsorgungshof, aber dann riecht Deine Karre nach Müll, dann schon lieba Sbahn, aber die fährt nicht imma.
+Oder Du nimmst dit Projekt und vasuchst rauszufinden, wo in der Nähe als nächstes abjeholt wird.
+Dann hast och den stickigen Sack nich vor Dener Tür.
+
+Viel Spass....
+
+== TODO:
+
+[ ] Daten sammeln
+[ ] Daten visualisieren
