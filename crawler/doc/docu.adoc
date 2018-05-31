@@ -1,0 +1,16 @@
+== Dokumentation
+
+=== Beschreibung reverse engineered Webseitedaten
+
+https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=6900000&amp;step=2
+
+scheinbar sind die adrkeys die primärschlüssel.
+Auf der Webseite wird eine Adresse zunächst in einen adrkey umgewandelt, mit dem dann angefragt wird.
+Scheinbar werden die schlüssel bei neuen abholungen neu gesetzt und dann die alten Werte gelöscht
+
+=== Beschreibung der Dunmp Dateien
+
+* Flache Textedatei
+* encoding UTF8
+* Format Strasse, Hausnummer, Servicetag, servicedate, primaerschluessel remote system, häufigkeit
+* Delimeter: "::::" (keine Ahnung, was für kranke Tricks es bei den Adressen gibt)
