@@ -14,3 +14,4 @@ Scheinbar werden die schlüssel bei neuen abholungen neu gesetzt und dann die al
 * encoding UTF8
 * Format Strasse, Hausnummer, Servicetag, servicedate, primaerschluessel remote system, häufigkeit
 * Delimeter: "::::" (keine Ahnung, was für kranke Tricks es bei den Adressen gibt)
+* Wenn in der Datei adrkeys fehlen, dann wurden dafür keine Daten im Originalsystem geliefert
