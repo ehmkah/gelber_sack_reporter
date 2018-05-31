@@ -15,7 +15,12 @@ Dann hast och den stickigen Sack nich vor Dener Tür.
 
 Viel Spass....
 
+Anmerkung:
+Und wascheinlich werd ick dit hier och nich fertig machen tun.
+So sind wa halt.
+
 == TODO:
 
-[ ] Daten sammeln
-[ ] Daten visualisieren
+* [ ] Daten sammeln (Beispiel https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=6973666&amp;step=2), einfach addrkey hochzählen scheint der primärkey zu sein
+
+* [ ] Daten visualisieren
