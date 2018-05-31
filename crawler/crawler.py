@@ -5,7 +5,7 @@ import sys
 import codecs
 
 adrkey=6900000
-sleeper=1
+sleeper=0.025
 
 #ausgabe = open("69_70.txt","w", "utf-8")
 ausgabe = codecs.open("69_70.txt", "w", "utf-8")
