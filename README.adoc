@@ -21,5 +21,6 @@ So sind wa halt.
 
 == TODO:
 
-[ ] Daten sammeln
-[ ] Daten visualisieren
+* [ ] Daten sammeln (Beispiel https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=6973666&amp;step=2), einfach addrkey hochzählen scheint der primärkey zu sein
+
+* [ ] Daten visualisieren
