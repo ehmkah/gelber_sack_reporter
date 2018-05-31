@@ -18,6 +18,8 @@ while adrkey<7000000:
 
     time.sleep(sleeper)
     try:
+        if adrkey % 100 == 0:
+            print adrkey
         data_row = json.loads(myfile)["d"]
         ausgabe.write(data_row["Pstlz"]+"::::"+data_row["Street"]+"::::"+data_row["Houseno"]+ "::::"+data_row["Service_day_regular"]+"::::"+ data_row["Service_date"]+"::::"+data_row["Adrkey"]+"::::"+data_row["Rhythm"]+"\n")
     except ValueError:
