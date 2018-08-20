@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import preload from './data.json';
 
+import AbholungDetail from './AbholungDetail';
+
 class Search extends Component {
   state = {
     streetName: ''
@@ -26,11 +28,7 @@ class Search extends Component {
                   this.state.streetName.toUpperCase()
                 ) >= 0 && abholung.Houseno === ''
             )
-            .map(abholung => (
-              <div>
-                <div>{abholung.Street}</div>
-              </div>
-            ))}
+            .map(abholung => <AbholungDetail street={abholung.Street} />)}
         </div>
       </div>
     );
