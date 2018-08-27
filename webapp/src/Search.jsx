@@ -5,7 +5,7 @@ import AbholungDetail from './AbholungDetail';
 
 class Search extends Component {
   state = {
-    streetName: ''
+    streetName: 'laue'
   };
 
   handleSearchTermChange = event => {
