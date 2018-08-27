@@ -9,11 +9,10 @@ class AbholungDetail extends Component {
     abholTag:''
   }
     componentDidMount() {
-axios.get('https://cors.io/?https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=6900000&step=2')
+axios.get(`https://cors.io/?https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=${this.props.adrKey}&step=2`)
     .then(response => {
         const abholTag = moment(response.data.d.Service_date, 'YYYYMMDD').format('DD.MM.YYYY');
-this.setState({abholTag: abholTag});
-        console.log(abholTag)});
+this.setState({abholTag: abholTag})});
     }
 
   render() {

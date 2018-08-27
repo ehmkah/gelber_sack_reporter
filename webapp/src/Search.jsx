@@ -28,7 +28,7 @@ class Search extends Component {
                   this.state.streetName.toUpperCase()
                 ) >= 0 && abholung.Houseno === ''
             )
-            .map(abholung => <AbholungDetail street={abholung.Street} />)}
+            .map(abholung => <AbholungDetail street={abholung.Street} adrKey={abholung.Adrkey} />)}
         </div>
       </div>
     );
