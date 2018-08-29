@@ -2,25 +2,41 @@ import React, { Component } from 'react';
 import preload from './data.json';
 
 import AbholungDetail from './AbholungDetail';
+import ZipCodeLoader from './ZipCodeLoad';
 
 class Search extends Component {
   state = {
-    streetName: 'laue'
+    streetName: 'laue',
+      zipCode: ''
+
   };
 
-  handleSearchTermChange = event => {
+  handleStreetnameChange = event => {
     this.setState({ streetName: event.target.value });
   };
+
+  handleZipCodeChange = event => {
+      this.setState({zipCode: event.target.value});
+  }
 
   render() {
     return (
       <div>
+          <input
+              onChange={this.handleZipCodeChange}
+              value={this.state.zipCode}
+              type="text"
+          />
         <input
-          onChange={this.handleSearchTermChange}
+          onChange={this.handleStreetnameChange}
           value={this.state.streetName}
           type="text"
         />
         <div>
+           < ZipCodeLoader zipCode={this.state.zipCode}/>
+
+
+
           {preload.d.results
             .filter(
               abholung =>
