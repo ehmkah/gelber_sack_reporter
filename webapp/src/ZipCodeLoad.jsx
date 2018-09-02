@@ -5,18 +5,18 @@ import axios from 'axios'
 class ZipCodeLoad extends Component {
 
     state = {
-        countedRecords : 0
-    }
+        currentZipCode:''
+}
 
     render () {
-        if (this.props.zipCode.length === 5) {
+        if (this.props.zipCode.length === 5 && this.state.currentZipCode !== this.props.zipCode) {
             axios.get(`https://cors.io/?https://trenntstadt-berlin.de/api-abfuhr.php?plz=${this.props.zipCode}&step=1`)
                 .then(response => {
-                    console.log(response.data.d.results.length)
-                    this.setState({countedRecords: response.data.d.results.length});
+                    this.props.callback(response.data.d.results);
+                    this.setState({currentZipCode:this.props.zipCode});
                 });
 
-            return (<h2>HURRA gefundene Eintraege {this.state.countedRecords}</h2>)
+            return (<h2>ZipCodeResolver aktiv</h2>)
         }
 
         return (<h2>{this.props.zipCode}</h2>);

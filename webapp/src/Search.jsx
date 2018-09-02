@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import preload from './data.json';
 
 import AbholungDetail from './AbholungDetail';
 import ZipCodeLoader from './ZipCodeLoad';
@@ -7,9 +6,19 @@ import ZipCodeLoader from './ZipCodeLoad';
 class Search extends Component {
   state = {
     streetName: 'laue',
-      zipCode: ''
-
+      zipCode: '',
+      abholung:[]
   };
+
+  constructor(props) {
+      super(props);
+      this.handleNewStreets = this.handleNewStreets.bind(this);
+
+  }
+
+  handleNewStreets(data) {
+     this.setState({abholung:data});
+  }
 
   handleStreetnameChange = event => {
     this.setState({ streetName: event.target.value });
@@ -33,11 +42,8 @@ class Search extends Component {
           type="text"
         />
         <div>
-           < ZipCodeLoader zipCode={this.state.zipCode}/>
-
-
-
-          {preload.d.results
+           < ZipCodeLoader zipCode={this.state.zipCode} callback={this.handleNewStreets}/>
+          {this.state.abholung
             .filter(
               abholung =>
                 abholung.Street.toUpperCase().indexOf(
