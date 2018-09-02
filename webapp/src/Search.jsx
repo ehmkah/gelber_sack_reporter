@@ -5,7 +5,7 @@ import ZipCodeLoader from './ZipCodeLoad';
 
 class Search extends Component {
   state = {
-    streetName: 'laue',
+    streetName: '',
       zipCode: '',
       abholung:[]
   };
@@ -35,11 +35,13 @@ class Search extends Component {
               onChange={this.handleZipCodeChange}
               value={this.state.zipCode}
               type="text"
+              placeholder="Postleitzahl"
           />
         <input
           onChange={this.handleStreetnameChange}
           value={this.state.streetName}
           type="text"
+          placeholder="Strasse"
         />
         <div>
            < ZipCodeLoader zipCode={this.state.zipCode} callback={this.handleNewStreets}/>

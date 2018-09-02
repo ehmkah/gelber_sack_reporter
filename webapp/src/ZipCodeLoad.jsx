@@ -15,11 +15,9 @@ class ZipCodeLoad extends Component {
                     this.props.callback(response.data.d.results);
                     this.setState({currentZipCode:this.props.zipCode});
                 });
-
-            return (<h2>ZipCodeResolver aktiv</h2>)
         }
 
-        return (<h2>{this.props.zipCode}</h2>);
+        return (<div/>);
 
     }
 
