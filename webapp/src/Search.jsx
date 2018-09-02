@@ -7,7 +7,8 @@ class Search extends Component {
   state = {
     streetName: '',
       zipCode: '',
-      abholung:[]
+      abholung:[],
+      disabled:true
   };
 
   constructor(props) {
@@ -18,6 +19,7 @@ class Search extends Component {
 
   handleNewStreets(data) {
      this.setState({abholung:data});
+     this.setState({disabled:false});
   }
 
   handleStreetnameChange = event => {
@@ -42,6 +44,7 @@ class Search extends Component {
           value={this.state.streetName}
           type="text"
           placeholder="Strasse"
+          disabled = {(this.state.disabled)? "disabled" : ""}
         />
         <div>
            < ZipCodeLoader zipCode={this.state.zipCode} callback={this.handleNewStreets}/>
@@ -52,6 +55,7 @@ class Search extends Component {
                   this.state.streetName.toUpperCase()
                 ) >= 0 && abholung.Houseno === ''
             )
+              .sort((abholung1, abholung2) => {return abholung1.Street > abholung2.Street} )
             .map(abholung => <AbholungDetail street={abholung.Street} adrKey={abholung.Adrkey} />)}
         </div>
       </div>
