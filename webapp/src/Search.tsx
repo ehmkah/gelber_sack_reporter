@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Search extends Component {
-
   public render() {
-    return <div>halloa</div>;
+    return <div>hallo</div>;
   }
 }
 
