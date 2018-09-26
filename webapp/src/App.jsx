@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
+
 import logo from './logo.svg';
-import Search from './Search';
 
 class App extends Component {
   render() {
@@ -12,10 +13,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />{' '}
           <h1 className="App-title">Der Gelbe Sack Reporter</h1>{' '}
         </header>{' '}
-        <Search />{' '}
       </div>
     );
   }
 }
 
-export default App;
+render(React.createElement(App), document.getElementById('root'));
