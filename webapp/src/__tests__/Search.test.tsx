@@ -1,8 +1,7 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import Enzyme, { shallow } from "enzyme";
+import { shallow } from "enzyme";
 import Search, { State } from "../Search";
-import Adapter from "enzyme-adapter-react-16";
 
 test("snapshot", () => {
   const c = create(<Search />);
@@ -10,7 +9,6 @@ test("snapshot", () => {
 });
 
 test("example unit test", () => {
-  Enzyme.configure({ adapter: new Adapter() });
   const wrapper = shallow(<Search />);
   const state = wrapper.state() as State;
   expect(state.zipCode).toBe("1234");

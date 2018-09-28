@@ -1,4 +1,5 @@
 module.exports = {
+    "setupFiles": ["./jest.setup.tsx"],
     "roots": [
         "<rootDir>/src"
     ],
