@@ -13,7 +13,7 @@ test("example unit test", () => {
   const state = wrapper.state() as State;
   expect(state.zipCode).toBe("1234");
   const seacrh = wrapper.instance() as Search;
-  seacrh.foo();
+  seacrh.changeZipCode();
   const state2 = wrapper.state() as State;
   expect(state2.zipCode).toBe("4561");
 });

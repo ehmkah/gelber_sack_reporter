@@ -10,7 +10,7 @@ class App extends Component {
         {" "}
         <header className="App-header">
           {" "}
-          <h1 className="App-title">Der Gelbe Sack Repsorter</h1>{" "}
+          <h1 className="App-title">Der Gelbe Sack Reporter</h1>{" "}
         </header>{" "}
         <Search />
       </div>

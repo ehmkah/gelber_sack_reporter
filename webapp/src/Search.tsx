@@ -6,16 +6,30 @@ interface State {
 
 class Search extends Component<object, State> {
   public state = {
-    zipCode: "1234"
+    zipCode: ""
   };
 
-  public foo() {
-    const newVal: State = { zipCode: "4561" };
+  public constructor(props: object) {
+    super(props);
+    this.changeZipCode = this.changeZipCode.bind(this);
+  }
+
+  public changeZipCode(event: React.ChangeEvent<HTMLInputElement>) {
+    const newVal: State = { zipCode: event.target.value };
     this.setState(newVal);
   }
 
   public render() {
-    return <div>hallo</div>;
+    return (
+      <div>
+        <input
+          type="text"
+          onChange={this.changeZipCode}
+          value={this.state.zipCode}
+          placeholder="Postleitzahl"
+        />
+      </div>
+    );
   }
 }
 
