@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 
+import DataLoader from "./DataLoader";
+import PickUpRenderer from "./PickUpRenderer";
+import { Pickup } from "./Types";
+
 interface State {
   zipCode: string;
+  pickups: Pickup[];
 }
 
 class Search extends Component<object, State> {
   public state = {
-    zipCode: ""
+    zipCode: "",
+    pickups: [{ street: "Von-Laue-Str. 12", pickup: new Date() }]
   };
 
   public constructor(props: object) {
@@ -15,8 +21,12 @@ class Search extends Component<object, State> {
   }
 
   public changeZipCode(event: React.ChangeEvent<HTMLInputElement>) {
-    const newVal: State = { zipCode: event.target.value };
+    const newVal: State = { zipCode: event.target.value, pickups: [] };
     this.setState(newVal);
+  }
+
+  public handleDataLoaded(data: Pickup[]) {
+    this.setState({ pickups: data });
   }
 
   public render() {
@@ -28,6 +38,9 @@ class Search extends Component<object, State> {
           value={this.state.zipCode}
           placeholder="Postleitzahl"
         />
+        <PickUpRenderer pickUps={this.state.pickups} />
+
+        <DataLoader />
       </div>
     );
   }
