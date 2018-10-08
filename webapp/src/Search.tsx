@@ -34,7 +34,7 @@ class Search extends Component<object, State> {
     const pickups: Pickup[] = [];
     pickups.push({ street: "Von-Laue-Str. 13", pickup: new Date() });
     pickups.push({ street: "Von-Laue-Str. 14", pickup: new Date() });
-    this.setState({ pickups: pickups });
+    this.setState({ pickups });
   }
 
   public render() {
@@ -48,7 +48,7 @@ class Search extends Component<object, State> {
         />
         <input type="button" onClick={this.forceIt} value="force Update" />
         <PickUpRenderer pickUps={this.state.pickups} />
-        <DataLoader />
+        <DataLoader zipCode={this.state.zipCode} />
       </div>
     );
   }
