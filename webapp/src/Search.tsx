@@ -18,6 +18,7 @@ class Search extends Component<object, State> {
   public constructor(props: object) {
     super(props);
     this.changeZipCode = this.changeZipCode.bind(this);
+    this.forceIt = this.forceIt.bind(this);
   }
 
   public changeZipCode(event: React.ChangeEvent<HTMLInputElement>) {
@@ -29,6 +30,13 @@ class Search extends Component<object, State> {
     this.setState({ pickups: data });
   }
 
+  public forceIt() {
+    const pickups: Pickup[] = [];
+    pickups.push({ street: "Von-Laue-Str. 13", pickup: new Date() });
+    pickups.push({ street: "Von-Laue-Str. 14", pickup: new Date() });
+    this.setState({ pickups: pickups });
+  }
+
   public render() {
     return (
       <div>
@@ -38,8 +46,8 @@ class Search extends Component<object, State> {
           value={this.state.zipCode}
           placeholder="Postleitzahl"
         />
+        <input type="button" onClick={this.forceIt} value="force Update" />
         <PickUpRenderer pickUps={this.state.pickups} />
-
         <DataLoader />
       </div>
     );
