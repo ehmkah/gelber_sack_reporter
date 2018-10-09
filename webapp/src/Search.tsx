@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import DataLoader from "./DataLoader";
 import PickUpRenderer from "./PickUpRenderer";
 import { Pickup } from "./Types";
+import { object } from "prop-types";
 
 interface State {
   zipCode: string;
@@ -12,7 +13,7 @@ interface State {
 class Search extends Component<object, State> {
   public state = {
     zipCode: "",
-    pickups: [{ street: "Von-Laue-Str. 12", pickup: new Date() }]
+    pickups: [{ adrKey: "123", street: "Von-Laue-Str. 12", pickup: new Date() }]
   };
 
   public constructor(props: object) {
@@ -32,8 +33,16 @@ class Search extends Component<object, State> {
 
   public forceIt() {
     const pickups: Pickup[] = [];
-    pickups.push({ street: "Von-Laue-Str. 13", pickup: new Date() });
-    pickups.push({ street: "Von-Laue-Str. 14", pickup: new Date() });
+    pickups.push({
+      adrKey: "1234",
+      street: "Von-Laue-Str. 13",
+      pickup: new Date()
+    });
+    pickups.push({
+      adrKey: "1235",
+      street: "Von-Laue-Str. 14",
+      pickup: new Date()
+    });
     this.setState({ pickups });
   }
 
