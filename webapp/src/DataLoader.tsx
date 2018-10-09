@@ -3,9 +3,11 @@ import React, { Component } from "react";
 import axios, { AxiosResponse } from "axios";
 
 import DataLoaderDetails from "./DataLoaderDetails";
+import { Pickup } from "./Types";
 
 interface Props {
   zipCode: string;
+  callBack: (pickUp: Pickup) => void;
 }
 
 interface State {
@@ -38,7 +40,7 @@ class DataLoader extends Component<Props, State> {
           }&step=1`
         )
         .then(response => {
-          return this.setState({ data: response.data.d.results });
+          this.setState({ data: response.data.d.results });
         });
     }
 
@@ -48,9 +50,17 @@ class DataLoader extends Component<Props, State> {
           <div>
             <div>lade daten für {this.props.zipCode}</div>
             {this.state.data
-              .filter(abholung => abholung.Houseno === "")
+              .filter(
+                abholung =>
+                  abholung.Houseno === "" && abholung.Street.includes("LAUE")
+              )
               .map(entry => {
-                return <DataLoaderDetails adrKey={entry.Adrkey} />;
+                return (
+                  <DataLoaderDetails
+                    adrKey={entry.Adrkey}
+                    callBack={this.props.callBack}
+                  />
+                );
               })}
           </div>
         );

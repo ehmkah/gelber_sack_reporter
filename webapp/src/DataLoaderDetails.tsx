@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 import axios from "axios";
+import { Pickup } from "./Types";
 
 interface Props {
   adrKey: string;
+  callBack: (pickup: Pickup) => void;
 }
 
 class DataLoaderDetails extends Component<Props, object> {
@@ -15,7 +17,12 @@ class DataLoaderDetails extends Component<Props, object> {
         }&step=2`
       )
       .then(response => {
-        console.log(response);
+        const result: Pickup = {
+          adrKey: this.props.adrKey,
+          street: response.data.d.Street,
+          pickup: new Date()
+        };
+        this.props.callBack(result);
       });
   }
 

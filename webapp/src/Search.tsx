@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import DataLoader from "./DataLoader";
 import PickUpRenderer from "./PickUpRenderer";
 import { Pickup } from "./Types";
-import { object } from "prop-types";
 
 interface State {
   zipCode: string;
@@ -20,6 +19,7 @@ class Search extends Component<object, State> {
     super(props);
     this.changeZipCode = this.changeZipCode.bind(this);
     this.forceIt = this.forceIt.bind(this);
+    this.handleDataLoaded = this.handleDataLoaded.bind(this);
   }
 
   public changeZipCode(event: React.ChangeEvent<HTMLInputElement>) {
@@ -27,8 +27,10 @@ class Search extends Component<object, State> {
     this.setState(newVal);
   }
 
-  public handleDataLoaded(data: Pickup[]) {
-    this.setState({ pickups: data });
+  public handleDataLoaded(data: Pickup) {
+    console.log("callback in the house");
+    console.log(data);
+    // this.setState({ pickups: data });
   }
 
   public forceIt() {
@@ -57,7 +59,10 @@ class Search extends Component<object, State> {
         />
         <input type="button" onClick={this.forceIt} value="force Update" />
         <PickUpRenderer pickUps={this.state.pickups} />
-        <DataLoader zipCode={this.state.zipCode} />
+        <DataLoader
+          zipCode={this.state.zipCode}
+          callBack={this.handleDataLoaded}
+        />
       </div>
     );
   }
