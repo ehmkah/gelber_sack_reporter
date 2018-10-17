@@ -1,5 +1,5 @@
 interface Pickup {
-  adrKey: string;
+  adrKey: number;
   street: string;
   pickup: Date;
 }

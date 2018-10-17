@@ -12,7 +12,7 @@ interface State {
 class Search extends Component<object, State> {
   public state = {
     zipCode: "",
-    pickups: [{ adrKey: "123", street: "Von-Laue-Str. 12", pickup: new Date() }]
+    pickups: [{ adrKey: 123, street: "Von-Laue-Str. 12", pickup: new Date() }]
   };
 
   public constructor(props: object) {
@@ -23,25 +23,36 @@ class Search extends Component<object, State> {
   }
 
   public changeZipCode(event: React.ChangeEvent<HTMLInputElement>) {
-    const newVal: State = { zipCode: event.target.value, pickups: [] };
+    const newVal: State = {
+      zipCode: event.target.value,
+      pickups: []
+    };
     this.setState(newVal);
   }
 
   public handleDataLoaded(data: Pickup) {
     console.log("callback in the house");
     console.log(data);
-    // this.setState({ pickups: data });
+    console.log(this.state.pickups);
+
+    this.setState(state => {
+      const updatedPickups = state.pickups.concat(data);
+      return {
+        zipCode: state.zipCode,
+        pickups: updatedPickups
+      };
+    });
   }
 
   public forceIt() {
     const pickups: Pickup[] = [];
     pickups.push({
-      adrKey: "1234",
+      adrKey: 1234,
       street: "Von-Laue-Str. 13",
       pickup: new Date()
     });
     pickups.push({
-      adrKey: "1235",
+      adrKey: 1235,
       street: "Von-Laue-Str. 14",
       pickup: new Date()
     });
