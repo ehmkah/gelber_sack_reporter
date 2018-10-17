@@ -6,4 +6,8 @@ interface Pickup {
   pickup: moment.Moment;
 }
 
-export { Pickup };
+interface Filter {
+  street: string;
+}
+
+export { Pickup, Filter };
