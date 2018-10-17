@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Filter, Pickup } from "./Types";
 
 import StreetFilter from "./StreetFilter";
+import DateFilter from "./DateFilter";
 
 interface Props {
   pickUps: Pickup[];
@@ -35,6 +36,7 @@ class PickUpRenderer extends Component<Props, State> {
               filter={this.state.filter}
               callback={this.changeStreet}
             />
+            <DateFilter pickups={this.props.pickUps} />
           </div>
           <table>
             <tr>
