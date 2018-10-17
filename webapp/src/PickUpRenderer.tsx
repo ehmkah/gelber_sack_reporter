@@ -9,20 +9,24 @@ interface Props {
 function PickUpRenderer(props: Props) {
   if (props.pickUps.length > 0) {
     return (
-      <div>
+      <table>
+        <tr>
+          <th>Strasse</th>
+          <th>Abholdatum</th>
+        </tr>
         {props.pickUps
           .sort((pickup1: Pickup, pickup2: Pickup) => {
             return pickup1.street.localeCompare(pickup2.street);
           })
           .map(value => {
             return (
-              <div>
-                <div>{value.street}</div>
-                <div>{value.pickup.format("DD.MM.YYYY")}</div>
-              </div>
+              <tr>
+                <td>{value.street}</td>
+                <td>{value.pickup.format("DD.MM.YYYY")}</td>
+              </tr>
             );
           })}
-      </div>
+      </table>
     );
   } else {
     return <div>enthält die Liste der Pickups</div>;
