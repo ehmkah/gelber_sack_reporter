@@ -18,7 +18,7 @@ function PickUpRenderer(props: Props) {
             return (
               <div>
                 <div>{value.street}</div>
-                <div>{value.pickup.toDateString()}</div>
+                <div>{value.pickup.format("DD.MM.YYYY")}</div>
               </div>
             );
           })}

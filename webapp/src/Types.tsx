@@ -1,7 +1,9 @@
+import moment from "moment";
+
 interface Pickup {
   adrKey: number;
   street: string;
-  pickup: Date;
+  pickup: moment.Moment;
 }
 
 export { Pickup };

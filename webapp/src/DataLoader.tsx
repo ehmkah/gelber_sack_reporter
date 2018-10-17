@@ -50,10 +50,7 @@ class DataLoader extends Component<Props, State> {
           <div>
             <div>lade daten für {this.props.zipCode}</div>
             {this.state.data
-              .filter(
-                abholung =>
-                  abholung.Houseno === "" && abholung.Street.includes("LAUE")
-              )
+              .filter(abholung => abholung.Houseno === "")
               .map(entry => {
                 return (
                   <DataLoaderDetails

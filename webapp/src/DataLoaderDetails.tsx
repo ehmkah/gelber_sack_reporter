@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 import axios from "axios";
 import { Pickup } from "./Types";
 
 interface Props {
-  adrKey: string;
+  adrKey: number;
   callBack: (pickup: Pickup) => void;
 }
 
@@ -20,7 +21,7 @@ class DataLoaderDetails extends Component<Props, object> {
         const result: Pickup = {
           adrKey: this.props.adrKey,
           street: response.data.d.Street,
-          pickup: new Date()
+          pickup: moment(response.data.d.Service_date)
         };
         this.props.callBack(result);
       });

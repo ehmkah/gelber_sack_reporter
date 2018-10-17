@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 import DataLoader from "./DataLoader";
 import PickUpRenderer from "./PickUpRenderer";
@@ -12,7 +13,7 @@ interface State {
 class Search extends Component<object, State> {
   public state = {
     zipCode: "",
-    pickups: [{ adrKey: 123, street: "Von-Laue-Str. 12", pickup: new Date() }]
+    pickups: [{ adrKey: 123, street: "Von-Laue-Str. 12", pickup: moment() }]
   };
 
   public constructor(props: object) {
@@ -49,12 +50,12 @@ class Search extends Component<object, State> {
     pickups.push({
       adrKey: 1234,
       street: "Von-Laue-Str. 13",
-      pickup: new Date()
+      pickup: moment()
     });
     pickups.push({
       adrKey: 1235,
       street: "Von-Laue-Str. 14",
-      pickup: new Date()
+      pickup: moment()
     });
     this.setState({ pickups });
   }
