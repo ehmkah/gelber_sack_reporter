@@ -19,8 +19,14 @@ Anmerkung:
 Und wascheinlich werd ick dit hier och nich fertig machen tun.
 So sind wa halt.
 
+== Develop
+
+* clone repository
+* `cd webapp`
+* `npm install`
+* `npm run dev`  => starts application
+* go to `http://localhost:1234`
+
 == TODO:
 
-* [ ] Daten sammeln (Beispiel https://trenntstadt-berlin.de/api-abfuhr.php?adrkey=6973666&amp;step=2), einfach addrkey hochzählen scheint der primärkey zu sein
-
-* [ ] Daten visualisieren
+* [ ] Visualize data nicely
