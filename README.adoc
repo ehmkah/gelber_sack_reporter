@@ -27,6 +27,13 @@ So sind wa halt.
 * `npm run dev`  => starts application
 * go to `http://localhost:1234`
 
+== Prod
+
+* `cd webapp`
+* `./node_modules/.bin/parcel build src/index.html`
+* edit remove absolute path for javascript and css in `dist/index.html``
+* copy to production
+
 == TODO:
 
 * [ ] Visualize data nicely
