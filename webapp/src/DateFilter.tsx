@@ -16,6 +16,9 @@ class DateFilter extends Component<Props, object> {
       })
       .filter((theValue, theIndex, theArray) => {
         return theArray.indexOf(theValue) === theIndex;
+      })
+      .sort((a: string, b: string) => {
+        return a.localeCompare(b);
       });
 
     return result;
@@ -26,12 +29,14 @@ class DateFilter extends Component<Props, object> {
 
     return (
       <div>
-        <h1>
-          datefilter
-          {dates.map(value => {
-            return <div>{value}</div>;
-          })}
-        </h1>
+        {dates.map(value => {
+          return (
+            <div>
+              <input type="checkbox" value={value} checked={true} />
+              {value}
+            </div>
+          );
+        })}
       </div>
     );
   }
