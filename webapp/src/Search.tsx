@@ -19,7 +19,6 @@ class Search extends Component<object, State> {
   public constructor(props: object) {
     super(props);
     this.changeZipCode = this.changeZipCode.bind(this);
-    this.forceIt = this.forceIt.bind(this);
     this.handleDataLoaded = this.handleDataLoaded.bind(this);
   }
 
@@ -45,21 +44,6 @@ class Search extends Component<object, State> {
     });
   }
 
-  public forceIt() {
-    const pickups: Pickup[] = [];
-    pickups.push({
-      adrKey: 1234,
-      street: "Von-Laue-Str. 13",
-      pickup: moment()
-    });
-    pickups.push({
-      adrKey: 1235,
-      street: "Von-Laue-Str. 14",
-      pickup: moment()
-    });
-    this.setState({ pickups });
-  }
-
   public render() {
     return (
       <div>
@@ -69,7 +53,6 @@ class Search extends Component<object, State> {
           value={this.state.zipCode}
           placeholder="Postleitzahl"
         />
-        <input type="button" onClick={this.forceIt} value="force Update" />
         <PickUpRenderer pickUps={this.state.pickups} />
         <DataLoader
           zipCode={this.state.zipCode}
