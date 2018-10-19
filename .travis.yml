@@ -5,6 +5,5 @@ install:
  - cd webapp
  - npm install
 script:
- - cd webapp
  - npm run prod 
 
