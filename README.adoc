@@ -1,4 +1,7 @@
-# gelber_sack_reporter
+# Gelber Sack Reporter - maybe a useful react.js showcase
+
+English below...
+
 Findet den Ort, wo der Gelbe Sack das nächste Mal abgeholt wird
 
 In Balin ham wa ne grosse Schnauze, aber hinkriejen tun wa nischts. 
@@ -19,6 +22,10 @@ Anmerkung:
 Und wascheinlich werd ick dit hier och nich fertig machen tun.
 So sind wa halt.
 
+== English
+
+Shows where the gelber sack (yellow bag???) will be collected. You need a zipCode. Normaly this is interesting if you live in a Sacksammelgebiet (bag-collection-area) or your Gelbe Tonne (yellow ton) is full and you dont want to drive to the Entsorgungshof (recycling-station). Only zipcodes for Berlin are supported.
+
 == Develop
 
 * clone repository
@@ -26,6 +33,13 @@ So sind wa halt.
 * `npm install`
 * `npm run dev`  => starts application
 * go to `http://localhost:1234`
+
+== Prod
+
+* `cd webapp`
+* `./node_modules/.bin/parcel build src/index.html`
+* edit remove absolute path for javascript and css in `dist/index.html``
+* copy to production
 
 == TODO:
 
