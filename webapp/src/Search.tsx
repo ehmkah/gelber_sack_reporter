@@ -13,7 +13,7 @@ interface State {
 class Search extends Component<object, State> {
   public state = {
     zipCode: "",
-    pickups: [{ adrKey: 123, street: "Von-Laue-Str. 12", pickup: moment() }]
+    pickups: []
   };
 
   public constructor(props: object) {
