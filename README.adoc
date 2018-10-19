@@ -1,6 +1,8 @@
 # Gelber Sack Reporter - maybe a useful react.js showcase
 
-English below...
+[![Build Status](https://api.travis-ci.org/ehmkah/gelber_sack_reporter.svg?branch=master)](https://travis-ci.org/ehmkah/gelber_sach_reporter)
+
+English below... 
 
 Findet den Ort, wo der Gelbe Sack das nächste Mal abgeholt wird
 
