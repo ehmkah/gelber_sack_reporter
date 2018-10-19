@@ -8,6 +8,7 @@ interface Pickup {
 
 interface Filter {
   street: string;
+  activeDates?: string[];
 }
 
 export { Pickup, Filter };

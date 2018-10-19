@@ -15,7 +15,7 @@ interface State {
 
 class PickUpRenderer extends Component<Props, State> {
   public state = {
-    filter: { street: "" }
+    filter: { street: "", activeDates: undefined }
   };
 
   public constructor(props: Props) {
@@ -45,7 +45,7 @@ class PickUpRenderer extends Component<Props, State> {
             </tr>
             {this.props.pickUps
               .filter(value => {
-                return StreetFilter.filter(value, this.state.filter);
+                return this.filter(value);
               })
               .sort((pickup1: Pickup, pickup2: Pickup) => {
                 return pickup1.street.localeCompare(pickup2.street);
@@ -64,6 +64,13 @@ class PickUpRenderer extends Component<Props, State> {
     } else {
       return <div>enthält die Liste der Pickups</div>;
     }
+  }
+
+  private filter(value: Pickup) {
+    return (
+      StreetFilter.filter(value, this.state.filter) &&
+      DateFilter.filter(value, this.state.filter)
+    );
   }
 }
 

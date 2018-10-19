@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { Pickup } from "./Types";
+import { Filter, Pickup } from "./Types";
 
 interface Props {
   pickups: Pickup[];
 }
 
 class DateFilter extends Component<Props, object> {
+  public static filter(pickup: Pickup, filter: Filter) {
+    return typeof filter.activeDates === "undefined";
+  }
+
   private extractDates(pickups: Pickup[]) {
     const result = pickups
       .map(value => {

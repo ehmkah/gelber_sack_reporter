@@ -19,7 +19,10 @@ class StreetFilter extends Component<Props, object> {
   }
 
   public changeStreet(event: React.ChangeEvent<HTMLInputElement>) {
-    this.props.callback({ street: event.target.value });
+    this.props.callback({
+      street: event.target.value,
+      activeDates: this.props.filter.activeDates
+    });
   }
 
   public render() {
