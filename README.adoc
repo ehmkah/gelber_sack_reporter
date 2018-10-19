@@ -37,7 +37,7 @@ Shows where the gelber sack (yellow bag???) will be collected. You need a zipCod
 == Prod
 
 * `cd webapp`
-* `./node_modules/.bin/parcel build src/index.html`
+* `npm run prod` 
 * edit remove absolute path for javascript and css in `dist/index.html``
 * copy to production
 
