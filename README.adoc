@@ -1,7 +1,7 @@
 # Gelber Sack Reporter - maybe a useful react.js showcase
 
 Build status : 
-[link=https://travis-ci.org/ehmkah/gelber_sach_reporter]
+[link=https://travis-ci.org/ehmkah/gelber_sack_reporter]
 image::https://api.travis-ci.org/ehmkah/gelber_sack_reporter.svg?branch=master[Build status]
 
 English below... 
