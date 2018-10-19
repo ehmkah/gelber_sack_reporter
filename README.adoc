@@ -30,6 +30,10 @@ So sind wa halt.
 
 Shows where the gelber sack (yellow bag???) will be collected. You need a zipCode. Normaly this is interesting if you live in a Sacksammelgebiet (bag-collection-area) or your Gelbe Tonne (yellow ton) is full and you dont want to drive to the Entsorgungshof (recycling-station). Only zipcodes for Berlin are supported.
 
+== Live
+
+* alpha version http://m-krausse.de/gesar/ you need a Berlin zipcode. Try 14195 or 14109 for example. The nice guys from geonames have created a list http://www.geonames.org/postal-codes/DE/BE/berlin.html . Happy for your comments :-)
+
 == Develop
 
 * clone repository
