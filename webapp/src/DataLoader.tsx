@@ -54,6 +54,7 @@ class DataLoader extends Component<Props, State> {
               .map(entry => {
                 return (
                   <DataLoaderDetails
+                    key={entry.Adrkey}
                     adrKey={entry.Adrkey}
                     callBack={this.props.callBack}
                   />

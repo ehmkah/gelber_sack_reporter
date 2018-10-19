@@ -36,7 +36,7 @@ class PickUpRenderer extends Component<Props, State> {
               filter={this.state.filter}
               callback={this.changeStreet}
             />
-            <DateFilter pickups={this.props.pickUps} />
+            <DateFilter key="1" pickups={this.props.pickUps} />
           </div>
           <table>
             <tr>
@@ -52,7 +52,7 @@ class PickUpRenderer extends Component<Props, State> {
               })
               .map(value => {
                 return (
-                  <tr>
+                  <tr key={value.adrKey}>
                     <td>{value.street}</td>
                     <td>{value.pickup.format("DD.MM.YYYY")}</td>
                   </tr>

@@ -35,7 +35,7 @@ class DateFilter extends Component<Props, object> {
       <div>
         {dates.map(value => {
           return (
-            <div>
+            <div key={value}>
               <input type="checkbox" value={value} checked={true} />
               {value}
             </div>
