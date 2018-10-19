@@ -7,7 +7,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json,tsx}\" ",
     "lint": "tslint --project .",
     "test": "jest",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "prod": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
