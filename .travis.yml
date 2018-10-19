@@ -1,5 +1,6 @@
 language: node_js
 install:
+ - cd webapp
  - npm install
 script:
  - cd webapp
