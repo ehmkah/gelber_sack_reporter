@@ -31,10 +31,6 @@ class Search extends Component<object, State> {
   }
 
   public handleDataLoaded(data: Pickup) {
-    console.log("callback in the house");
-    console.log(data);
-    console.log(this.state.pickups);
-
     this.setState(state => {
       const updatedPickups = state.pickups.concat(data);
       return {

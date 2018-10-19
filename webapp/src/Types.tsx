@@ -8,7 +8,7 @@ interface Pickup {
 
 interface Filter {
   street: string;
-  activeDates?: string[];
+  activeDates: moment.Moment[];
 }
 
 export { Pickup, Filter };

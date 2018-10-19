@@ -7,7 +7,22 @@ interface Props {
 
 class DateFilter extends Component<Props, object> {
   public static filter(pickup: Pickup, filter: Filter) {
-    return typeof filter.activeDates === "undefined";
+    if (
+      typeof filter.activeDates === "undefined" ||
+      filter.activeDates.length === 0
+    ) {
+      return true;
+    }
+
+    const matched = filter.activeDates.filter(value => {
+      return pickup.pickup.isSame(value);
+    });
+
+    if (matched.length > 0) {
+      return true;
+    }
+
+    return false;
   }
 
   private extractDates(pickups: Pickup[]) {

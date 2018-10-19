@@ -21,7 +21,7 @@ class DataLoaderDetails extends Component<Props, object> {
         const result: Pickup = {
           adrKey: this.props.adrKey,
           street: response.data.d.Street,
-          pickup: moment(response.data.d.Service_date)
+          pickup: moment(response.data.d.Service_date, "YYYYMMDD")
         };
         this.props.callBack(result);
       });

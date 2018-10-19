@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 import { Filter, Pickup } from "./Types";
-
 import StreetFilter from "./StreetFilter";
 import DateFilter from "./DateFilter";
 
@@ -15,7 +15,7 @@ interface State {
 
 class PickUpRenderer extends Component<Props, State> {
   public state = {
-    filter: { street: "", activeDates: undefined }
+    filter: { street: "", activeDates: [] }
   };
 
   public constructor(props: Props) {
