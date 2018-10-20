@@ -43,25 +43,29 @@ class PickUpRenderer extends Component<Props, State> {
             />
           </div>
           <table>
-            <tr>
-              <th>Strasse</th>
-              <th>Abholdatum</th>
-            </tr>
-            {this.props.pickUps
-              .filter(value => {
-                return this.filter(value);
-              })
-              .sort((pickup1: Pickup, pickup2: Pickup) => {
-                return pickup1.street.localeCompare(pickup2.street);
-              })
-              .map(value => {
-                return (
-                  <tr key={value.adrKey}>
-                    <td>{value.street}</td>
-                    <td>{value.pickup.format("DD.MM.YYYY")}</td>
-                  </tr>
-                );
-              })}
+            <thead>
+              <tr>
+                <th>Strasse</th>
+                <th>Abholdatum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.pickUps
+                .filter(value => {
+                  return this.filter(value);
+                })
+                .sort((pickup1: Pickup, pickup2: Pickup) => {
+                  return pickup1.street.localeCompare(pickup2.street);
+                })
+                .map(value => {
+                  return (
+                    <tr key={value.adrKey}>
+                      <td>{value.street}</td>
+                      <td>{value.pickup.format("DD.MM.YYYY")}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
           </table>
         </div>
       );
