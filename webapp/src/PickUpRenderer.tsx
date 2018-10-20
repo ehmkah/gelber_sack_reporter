@@ -20,10 +20,10 @@ class PickUpRenderer extends Component<Props, State> {
 
   public constructor(props: Props) {
     super(props);
-    this.changeStreet = this.changeStreet.bind(this);
+    this.updateFilter = this.updateFilter.bind(this);
   }
 
-  public changeStreet(filter: Filter) {
+  public updateFilter(filter: Filter) {
     this.setState({ filter });
   }
 
@@ -34,9 +34,13 @@ class PickUpRenderer extends Component<Props, State> {
           <div>
             <StreetFilter
               filter={this.state.filter}
-              callback={this.changeStreet}
+              callback={this.updateFilter}
             />
-            <DateFilter key="1" pickups={this.props.pickUps} />
+            <DateFilter
+              key="1"
+              pickups={this.props.pickUps}
+              callback={this.updateFilter}
+            />
           </div>
           <table>
             <tr>

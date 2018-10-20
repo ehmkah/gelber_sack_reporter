@@ -3,9 +3,29 @@ import { Filter, Pickup } from "./Types";
 
 interface Props {
   pickups: Pickup[];
+  callback: (filter: Filter) => void;
 }
 
-class DateFilter extends Component<Props, object> {
+interface State {
+  checked: string[];
+  possibleDates: string[];
+}
+
+class DateFilter extends Component<Props, State> {
+  public state = {
+    checked: [],
+    possibleDates: []
+  };
+
+  public constructor(props: Props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  public handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(event);
+  }
+
   public static filter(pickup: Pickup, filter: Filter) {
     if (
       typeof filter.activeDates === "undefined" ||
@@ -51,7 +71,12 @@ class DateFilter extends Component<Props, object> {
         {dates.map(value => {
           return (
             <div key={value}>
-              <input type="checkbox" value={value} checked={true} />
+              <input
+                type="checkbox"
+                onChange={this.handleChange}
+                value={value}
+                checked={true}
+              />
               {value}
             </div>
           );
