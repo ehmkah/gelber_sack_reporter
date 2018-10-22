@@ -113,8 +113,15 @@ class DateFilter extends Component<Props, State> {
   public render() {
     return (
       <div>
+        <div>
+          Heute haben wir den {moment().format("DD.MM.YYYY")}
+          ;-)
+        </div>
+
         {this.state.possibleDates.map(value => {
-          const checked = this.state.checked.indexOf(value) >= 0;
+          const checked =
+            this.state.checked.indexOf(value) >= 0 ||
+            this.props.filter.activeDates.length === 0;
           console.log(this.state.checked);
           return (
             <div key={value}>
