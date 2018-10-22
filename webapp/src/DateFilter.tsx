@@ -15,7 +15,7 @@ interface State {
 }
 
 class DateFilter extends Component<Props, State> {
-  public state = {
+  public state: State = {
     checked: [],
     possibleDates: []
   };
@@ -26,7 +26,7 @@ class DateFilter extends Component<Props, State> {
   }
 
   public handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const selectedDate = event.target.value;
+    const selectedDate: string = event.target.value;
     if (this.state.checked.indexOf(selectedDate) >= 0) {
       this.setState(oldState => {
         const checked = oldState.checked.filter(value => {

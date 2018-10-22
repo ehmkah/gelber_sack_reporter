@@ -12,7 +12,12 @@ interface Props {
 
 interface State {
   status: InterState;
-  data: any;
+  data: ApiData[];
+}
+
+interface ApiData {
+  Houseno: string;
+  Adrkey: number;
 }
 
 enum InterState {
@@ -22,7 +27,7 @@ enum InterState {
 }
 
 class DataLoader extends Component<Props, State> {
-  public state = {
+  public state: State = {
     status: InterState.Empty,
     data: []
   };
