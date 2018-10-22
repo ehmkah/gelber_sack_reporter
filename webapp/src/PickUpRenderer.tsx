@@ -71,7 +71,7 @@ class PickUpRenderer extends Component<Props, State> {
         </div>
       );
     } else {
-      return <div>enthält die Liste der Pickups</div>;
+      return <div />;
     }
   }
 
