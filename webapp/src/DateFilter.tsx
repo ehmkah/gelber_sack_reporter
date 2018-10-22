@@ -45,7 +45,7 @@ class DateFilter extends Component<Props, State> {
     return false;
   }
 
-  private extractDates(pickups: Pickup[]) {
+  private static extractDates(pickups: Pickup[]) {
     const result = pickups
       .map(value => {
         return value.pickup;
@@ -63,12 +63,16 @@ class DateFilter extends Component<Props, State> {
     return result;
   }
 
-  public render() {
-    const dates = this.extractDates(this.props.pickups);
+  public static getDerivedStateFromProps(props: Props, state: State) {
+    const possibleDates = DateFilter.extractDates(props.pickups);
 
+    return { checked: possibleDates, possibleDates };
+  }
+
+  public render() {
     return (
       <div>
-        {dates.map(value => {
+        {this.state.possibleDates.map(value => {
           return (
             <div key={value}>
               <input
