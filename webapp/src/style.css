@@ -1,3 +1,8 @@
 body {
   background-color: yellow;
 }
+
+div.copyright {
+    text-align: center;
+    font-size: 13px;
+}
