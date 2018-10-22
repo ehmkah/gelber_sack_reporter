@@ -2,6 +2,15 @@
 
 exports[`snapshot 1`] = `
 <div>
-  hallo
+  <input
+    onChange={[Function]}
+    placeholder="Postleitzahl"
+    type="text"
+    value=""
+  />
+  <div />
+  <div>
+    noch nicht geladen
+  </div>
 </div>
 `;
