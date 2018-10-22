@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import moment from "moment";
+
 import { Filter, Pickup } from "./Types";
 
 interface Props {
   pickups: Pickup[];
+  filter: Filter;
   callback: (filter: Filter) => void;
 }
 
@@ -23,7 +26,51 @@ class DateFilter extends Component<Props, State> {
   }
 
   public handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    console.log(event);
+    const selectedDate = event.target.value;
+    if (this.state.checked.indexOf(selectedDate) >= 0) {
+      this.setState(oldState => {
+        const checked = oldState.checked.filter(value => {
+          return value !== selectedDate;
+        });
+        const newState: State = {
+          checked,
+          possibleDates: oldState.possibleDates
+        };
+        return newState;
+      });
+      const activeDates = this.props.filter.activeDates.filter(value => {
+        return !value.isSame(moment(selectedDate, "DD.MM.YYYY"));
+      });
+      const filter: Filter = {
+        street: this.props.filter.street,
+        activeDates
+      };
+
+      this.props.callback(filter);
+    } else {
+      this.setState(oldState => {
+        const checked = oldState.checked.concat(selectedDate);
+        const newState: State = {
+          checked,
+          possibleDates: oldState.possibleDates
+        };
+        return newState;
+      });
+      const activeDates = this.props.filter.activeDates.concat(
+        moment(selectedDate, "DD.MM.YYYY")
+      );
+      const filter: Filter = {
+        street: this.props.filter.street,
+        activeDates
+      };
+      this.props.callback(filter);
+    }
+  }
+
+  public static getDerivedStateFromProps(props: Props, state: State) {
+    const possibleDates = DateFilter.extractDates(props.pickups);
+
+    return { possibleDates };
   }
 
   public static filter(pickup: Pickup, filter: Filter) {
@@ -63,23 +110,19 @@ class DateFilter extends Component<Props, State> {
     return result;
   }
 
-  public static getDerivedStateFromProps(props: Props, state: State) {
-    const possibleDates = DateFilter.extractDates(props.pickups);
-
-    return { checked: possibleDates, possibleDates };
-  }
-
   public render() {
     return (
       <div>
         {this.state.possibleDates.map(value => {
+          const checked = this.state.checked.indexOf(value) >= 0;
+          console.log(this.state.checked);
           return (
             <div key={value}>
               <input
                 type="checkbox"
                 onChange={this.handleChange}
                 value={value}
-                checked={true}
+                checked={checked}
               />
               {value}
             </div>

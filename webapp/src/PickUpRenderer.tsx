@@ -38,6 +38,7 @@ class PickUpRenderer extends Component<Props, State> {
             />
             <DateFilter
               key="1"
+              filter={this.state.filter}
               pickups={this.props.pickUps}
               callback={this.updateFilter}
             />
