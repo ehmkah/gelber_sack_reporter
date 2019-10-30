@@ -40,9 +40,9 @@ class DataLoader extends Component<Props, State> {
       this.setState({ status: InterState.Loading });
       axios
         .get(
-          `https://cors.io/?https://trenntstadt-berlin.de/api-abfuhr.php?plz=${
+          `http://m-krausse.de/proxy/proxy.php?csurl=https://trenntstadt-berlin.de/api-abfuhr.php?plz=${
             this.props.zipCode
-          }&step=1`
+          }%26step=1`
         )
         .then(response => {
           this.setState({ data: response.data.d.results });
@@ -55,7 +55,6 @@ class DataLoader extends Component<Props, State> {
           <div>
             <div>lade daten für {this.props.zipCode}</div>
             {this.state.data
-              .filter(abholung => abholung.Houseno === "")
               .map(entry => {
                 return (
                   <DataLoaderDetails

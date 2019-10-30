@@ -61,7 +61,7 @@ class PickUpRenderer extends Component<Props, State> {
                 .map(value => {
                   return (
                     <tr key={value.adrKey}>
-                      <td>{value.street}</td>
+                      <td>{value.street} {value.houseNo}</td>
                       <td>{value.pickup.format("DD.MM.YYYY")}</td>
                     </tr>
                   );
